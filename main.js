@@ -1,4 +1,3 @@
-import './style.css';
 import * as THREE from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
@@ -90,17 +89,14 @@ var times = Array(NUM_OF_TEXTS).fill(0);
 async function t() {
   for (let index = 0; index < NUM_OF_TEXTS; index++) {
     uuids[index] = await generate_text(index, chosen);
-    console.log(uuids[index], index);
     times[index] = index / NUM_OF_TEXTS * MAX_TIME;
     scene.getObjectByProperty('uuid', uuids[index]).material.opacity = Math.sin(times[index] * Math.PI / MAX_TIME);
   }
-  console.log(uuids);
   return;
 }
 
 async function q() {
   await t();
-  console.log('t');
   animate();
 }
 q();
@@ -146,7 +142,6 @@ function select_code() {
 
 
 function dispose(text) {
-  console.log(uuids);
   let i = uuids.findIndex(uuid => uuid == text.uuid);
   unchosen.push(chosen[i]);
   chosen[i] = '';
@@ -159,12 +154,10 @@ function dispose(text) {
 
 async function update(uuid, index, uuids) {
   let text = scene.getObjectByProperty('uuid', uuid);
-  console.log(uuid, uuids);
   text.material.opacity = Math.sin(times[index] * Math.PI / MAX_TIME);
   text.position.z += 1;
 
   if (text.material.opacity <= 0.001) {
-    console.log("q");
     dispose(text);
     uuids[index] = await generate_text(index, chosen);
   }
@@ -173,110 +166,8 @@ async function update(uuid, index, uuids) {
 
 function animate() {
   window.requestAnimationFrame(animate);
-  // console.log(uuids);
   times.forEach((time, index, times) => {times[index] = (time + 1) % MAX_TIME});
   uuids.forEach((uuid, index, uuids) => update(uuid, index, uuids));
-  // let proms = uuids.map((uuid, index, uuids) => update(uuid, index, uuids));
-  // Promise.all(proms).then();
 
   renderer.render(scene, camera);
 }
-
-
-// var current_texts = []
-
-// function add_text() {
-//   let index = Math.floor(Math.random() * unchosen_code.length);
-//   let text = null;
-//   new_text(unchosen_code[index])
-//   .then(val => {
-//     text = val;
-//     text.material.transparent = true;
-//     text.material.opacity = 0;
-
-//     let sign = (Math.floor(Math.random() * 2) * 2 - 1);
-//     let pos = [
-//       (Math.random() * 100 + 250) * sign,
-//       Math.random() * 300 - 150,
-//       -400
-//     ];
-//     text.position.set(...pos);
-//     text.rotation.y = -sign * 0.3;
-  
-//     current_texts.push(text);
-//     scene.add(text);
-//   });
-// }
-
-
-
-
-// async function new_text(code) {
-//   return await new Promise( resolve => loader.load('fonts/DejaVu Sans Mono_Book.json', function (font) {
-    
-//     let geometry = new TextGeometry(code, {
-//       font: font,
-//       size: 8,
-//       height: 1,
-//       curveSegments: 12,
-//     });
-//     let material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-//     let text = new THREE.Mesh(geometry, material);
-//     resolve(text);
-//     // let [x, y] = [THREE.MathUtils.randFloat(-100, 100), THREE.MathUtils.randFloat(0, 100)];
-//     // text.position.set(x, y, -200);
-//     // text.rotation.y -= 0.4;
-
-//     // scene.add(text);
-//     // texts.push(text);
-//   }));
-// }
-
-// function update(text) {
-//   // let [text, uuid] = text_obj;
-//   if (text.position.z > -250 && text.material.opacity == 0) {
-//     current_texts.splice(current_texts.indexOf(text), 1);
-//     text.geometry.dispose();
-//     text.material.dispose();
-//     scene.remove(text);
-//     return;
-//   }
-//   console.log("Hi");
-//   text.material.opacity +=  text.position.z       > -250 ? -0.02
-//                           : text.material.opacity < 1    ? 0.02
-//                           : 0;
-//   text.position.z += 0.5;
-// }
-
-// // Test
-// // const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-// // const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
-// // const torus = new THREE.Mesh(geometry, material);
-// // scene.add(torus);
-
-// // var t = 0;
-// add_text();
-// setInterval(add_text, 5000);
-
-// function animate() {
-//   window.requestAnimationFrame(animate);
-
-//   // if (t % 200 == 0) {
-//   //   add_text();
-//   // }
-//   // t = (t + 1) % 100;
-
-//   // texts[0].position.z += 0.1;
-//   current_texts.forEach(text => update(text));
-//   renderer.render(scene, camera);
-// }
-// animate()
-
-// let geometry = new THREE.SphereGeometry();
-// let material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-// for (let i = -220; i <= 200; i += 10) {
-//   let sphere = new THREE.Mesh(geometry, material);
-//   sphere.position.set(...[0, i, -200]);
-//   scene.add(sphere);
-// }
-// renderer.render(scene, camera);
