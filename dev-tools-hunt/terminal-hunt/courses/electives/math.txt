@@ -1,0 +1,6 @@
+- 01:640:338 (Discrete and Probabilistic Models in Biology)
+- 01:640:348 (Cryptography)
+- 01:640:354 (Linear Optimization)
+- 01:640:428 (Graph Theory)
+- 01:640:454 (Combinatorial Theory)
+- 01:640:461 (Mathematical Logic and Foundations of Mathematics)

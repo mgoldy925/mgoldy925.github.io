@@ -1,0 +1,5 @@
+- 01:730:315 (Applied Symbolic Logic)
+- 01:730:407 (Intermediate Logic I)
+- 01:730:408 (Intermediate Logic II)
+- 01:730:329 (Minds, Machines, & Persons)
+- 01:730:424 (The Logic of Decision)

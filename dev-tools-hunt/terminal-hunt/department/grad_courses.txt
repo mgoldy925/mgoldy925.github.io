@@ -1,0 +1,13 @@
+Requirements to Register for CS Graduate Courses
+
+
+A special permission number to register for a CS graduate class is given to an undergraduate student only when they satisfy the following requirements.
+
+- The student should be a CS major. If a CS minor wants to register for a graduate class, they should have completed the CS minor requirements.
+- The student's CS GPA should be equal to or greater than 3.5
+- The student should have completed the CORE requirements of the CS major. 
+- The student should have completed at least 2 CS electives.
+- The student will not be allowed to register for more than two graduate courses per term.
+- An undergraduate student will be allowed to register only for courses that satisfy the breadth requirement for the PhD program. 
+
+For undergraduates taking graduate courses, you will request an SPN through the SPN system, fill out and contact the instructor to request signature on the Undergraduate taking Graduate Course form. The instructors will not be responding until after registration has begun.

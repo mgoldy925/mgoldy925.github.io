@@ -1,0 +1,4 @@
+- 01:960:384 (Intermediate Statistical Analysis)
+- 01:960:463 (Regression Methods)
+- 01:960:476 (Introduction to Sampling)
+- 01:960:486 (Computing and Graphics in Applied Statistics)

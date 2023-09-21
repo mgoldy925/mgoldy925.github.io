@@ -1,0 +1,17 @@
+The Minor in computer science has the following requirements:
+
+- Six of the following computer science courses   111, 112, 205, 206, 210, 211, 213, 214, 314, 323, 324, 334, 336, 344, 345, 352, 411, 415, 416, 417, 419, 424, 425, 428, 431,437, 439, 440, 442 (unless otherwise specified), 452, 460 , 461, 462 at least two of which are at the 300 or 400 level, chosen in consultation with a departmental advisor.
+- Computer Science 105, 107, 110, 170 or 405 cannot be credited toward a minor in computer science. Only courses that count toward the major may be counted toward the minor.
+- No more than one D will be accepted in courses taken toward the minor.
+- Residency condition: At least five of the courses used to satisfy the requirements of the minor must be courses taken in the New Brunswick Department of Computer Science. (These courses must be 01:198:xxx.)
+
+Some examples of CS minors: 
+
+  111,112,211,214,416,417           requires calc 1 (a prereq for 112) 
+  111,112,205,213,336,431           requires calc 1, calc 2 (a prereq for 205) 
+  111,112,205,211,314,336                                   " 
+  111,112,205,211,314,440                                   " 
+  111,112,205,206,336,344                                   " 
+  111,112,205,206,344,452                                   " 
+  111,112,205,213,323,428           requires calc 1, calc 2, linear algebra 
+  111,112,205,206 + 2 of {323,334,428}                       "
