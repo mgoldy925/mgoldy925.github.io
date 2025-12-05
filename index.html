@@ -1,150 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.144.0/build/three.module.js",
-          "three/examples/jsm/loaders/FontLoader": "https://unpkg.com/three@0.144.0/examples/jsm/loaders/FontLoader.js",
-          "three/examples/jsm/geometries/TextGeometry": "https://unpkg.com/three@0.144.0/examples/jsm/geometries/TextGeometry.js"
-        }
-      }
-    </script>
-    <script type="module" src="nothree.js" defer></script>
-    <script type="module" src="main.js"></script>
-    <title>Max's Website</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estimathon Grader</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+  <div class="header">
+    <div class="title">Estimathon Grader</div>
+  </div>
 
-    <canvas id="bg"></canvas>
+  <div class="container">
+    <form id="guessForm">
+      <div class="form-group">
+        <label for="problem">Problem:</label>
+        <input type="number" id="problem" name="problem" min="1" max="13" required>
+      </div>
 
-    <main>
-      <header>
-        <h1></h1>
-      </header>
-      
-      <nav id="q">
-        <button type="button" id="about">About Me</button>
-        <button type="button" id="skills">Skills</button>
-        <button type="button" id="exp">Experience</button>
-        <button type="button" id="resume">Resume</button>
-        <button type="button" id="contact">Contact Me</button>
-      </nav>
+      <div class="form-group">
+        <label for="team">Team Name:</label>
+        <input type="text" id="team" name="team" required>
+      </div>
 
-      <section id="content">
-        <section class="about">
-          <h2>About Me</h2>
-          <p>
-            I'm a sophomore at the Rutgers Honors College pursuing a Computer Science and Mathematics double major
-            and Physics minor.  I spend my free time having fun with friends, hanging out at the Math Lounge on Rutgers
-            New Brunswick campus, or looking after my rescue beagle Honey at home.  I'm currently looking to explore 
-            the world of computer science, specifically in the field of software engineering, although I have an interest 
-            in various other areas such as Data Science and Game Development. 
-          </p>
-          <!-- My passion for these subjects goes back to when I was a kid watching How the Universe 
-            Works with my dad.  To this day, I spend my free time watching math videos and coding small, fun side projects.
-          </p> -->
-          <!-- <p>
-            During high school, I began to pursue my interests.  I conducted my own physics experiments, such as finding 
-            Arago's Spot and the Double Slit Experiment.  I pursued astrophotography, and I coded simulations of an object
-            experiencing air resistance and of a tetrahedral molecule forming its molecular geometry.
-          </p>
-          <p>
-            During my freshman year, I explored pure mathematics in my Honors Calc III and IV classes, covering topics such
-            as the Bolzano-Weierstrass Theorem and the Liouville-Sturm operator.  Through the Directed Reading Program, I
-            learned differential topology, and I am currently self-studying Abstract Algebra.
-          </p>
-          <p>
-            As for my coding, I am proficient in Java and Python with experience in many other languages, such as C, JavaScript,
-            MySQL, MatLab, and more.  I have knowledge of data structures and developed assignments for the Data structures 
-            course are Rutgers University, created full-stack web applications with Django, and implemented various algorithms
-            in AI along with other problem-solving skills.
-          </p>
-          <p>
-            Outside of this, I'm usually either having fun with friends, hanging out at the Math Lounge on campus at Rutgers, or
-            looking after my rescue beagle Honey at home.
-          </p> -->
-        </section>
+      <div class="form-group">
+        <label for="low">Low:</label>
+        <input type="number" id="low" name="low" required>
+      </div>
 
-        <section class="skills">
-          <h2>Skills</h2>
-          <section>
-            <h4>Languages</h4>
-            <ul>
-              <li>Python</li>
-              <li>Java</li>
-              <li>QB64</li>
-              <li>JavaScript</li>
-              <li>LaTeX</li>
-              <li>HTML & CSS</li>
-              <li>C</li>
-              <li>MatLab</li>
-            </ul>
-          </section>
+      <div class="form-group">
+        <label for="high">High:</label>
+        <input type="number" id="high" name="high" required>
+      </div>
 
-          <section>
-            <h4>Technologies & Frameworks</h4>
-            <ul>
-              <li>Git</li>
-              <li>Linux</li>
-              <li>Django</li>
-              <li>MySQL</li>
-              <li>pygame</li>
-              <li>NodeJS</li>
-              <li>Bootstrap</li>
-              <li>ReactJS</li>
-            </ul>
-          </section>
-        </section>
+      <button type="button" id="submitBtn" class="submit-btn">Submit Guess</button>
+      <p id="status"></p>
+    </form>
 
-        <section class="exp">
-          <h2>Experience</h2>
-          <section>
-            <h4>Data Structures Assignment Developer</h4>
-            <p>
-              During the summer of 2022, I created assignments for the Data Structures course at Rutgers University.
-              Specifically, I collaborated on a 2D Arrays and Union Find assignment about Conway's Game of Life and a 
-              trees assignment using Merkle Trees to model Git.  I created these projects in Java and utilized Git and 
-              GitHub for version control.  Documentation, and assignment descriptions, and test cases were produced in
-              these assignments.
-            </p>
-          </section>
-
-          <section>
-            <h4>QBasic JavaScript Transpiler</h4>
-            <p>
-              Using Python, I developed a script to transpile QB64 code into JavaScript that can be run in the browser.
-              Although not a perfect transpiler, it effectively translates the most important features of the language.
-              Graphics in QB64 can be used with this transpiler with an extra library of JavaScript functions that draw
-              on a canvas on the browser.  A demo of this project will be available on a separate project of mine coming soon.
-            </p>
-          </section>
-
-          <section>
-            <h4></h4>
-          </section>
-        </section>
-
-        <section class="resume">
-          <h2>Resume</h2>
-          <h4><a href="resume.pdf" download>Click here to download my resume!</a></h4>
-        </section>
-
-        <section class="contact">
-          <h2>Contact Me</h2>
-          <ul>
-            <li>Email: mgoldberg925@gmail.com</li>
-            <li>GitHub: mgoldy925</li>
-            <li>LinkedIn: mgoldberg25</li>
-          </ul>
-        </section>
-      </section>
-    </main>
-
-    <script type="module" src="/main.js"></script>
-  </body>
+    <script type="text/javascript" src="main.js"></script>
+  </div>
+</body>
 </html>
